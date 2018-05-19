@@ -26,7 +26,10 @@ namespace Cribbage
 
         public override void printHand()
         {
-
+            foreach (byte card in hand)
+            {
+                Console.WriteLine(GetCardString(card));
+            }
         }
     }
 }

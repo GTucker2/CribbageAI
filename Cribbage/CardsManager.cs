@@ -1,6 +1,7 @@
 namespace Cards
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// This class defines a series of readonly bytes to
@@ -15,6 +16,7 @@ namespace Cards
         public static readonly byte HEARTS   = 0b01000000;
         public static readonly byte SPADES   = 0b10000000;
         public static readonly byte [] SUITS = {CLUBS, DIAMONDS, HEARTS, SPADES};
+        public static readonly string [] SUIT_NAMES = {"Clubs", "Diamonds", "Hearts", "Spades"};
 
         // Readonly vars defining card numbers.
         public static readonly byte _A  = 0b00000001;
@@ -31,7 +33,9 @@ namespace Cards
         public static readonly byte _Q  = 0b00001100;
         public static readonly byte _K  = 0b00001101;
         public static readonly byte [] NUMS = {_A, _2, _3, _4, _5, _6, _7, _8, _9, _10, _J, _Q, _K};
-    
+        public static readonly string [] NUM_NAMES = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", 
+                                                    "Jack", "Queen", "King"};
+
         /// <summary>
         /// Generates and returns the ID for the specified card.
         /// Card IDs are generated on the basis that the first card is
@@ -78,11 +82,35 @@ namespace Cards
 
             // Generage the ID of the card based on the given index.
             int cardIdx = 0;
-            for (int byteIDX = 0; byteIDX < SUITS.Length; byteIDX++)
-                if ((cardID & SUITS[byteIDX]) == SUITS[byteIDX]) cardIdx = NUMS.Length * byteIDX;
+            for (int suitIDX = 0; suitIDX < SUITS.Length; suitIDX++)
+                if ((cardID & SUITS[suitIDX]) == SUITS[suitIDX]) cardIdx = NUMS.Length * byteIDX;
             cardID &= 0b00001111;
             cardIdx += cardID;
             return cardIdx;
+        }
+
+        public static string GetCardString(int cardIdx) => GetCardString(GetCardID(cardIdx));
+        public static string GetCardString(byte cardID)
+        {
+            // CANT DETECT INVALID CARDS AS OF YET
+            // TOO SLOW. JUST MAKE A DICTIONARY!!!!!
+
+            // The name of the card to return, e.g. 'Queen of Hearts'.
+            string cardString = "";
+
+            // Append the matching number and suit of the card to the return string.
+            for (int numIdx = 0; numIdx < NUMS.Length; numIdx++)
+            {
+                if ((cardID & NUMS[numIdx]) == NUMS[numIdx]) cardString += NUM_NAMES[numIdx];
+                break;
+            }
+            cardString += " of ";
+            for (int suitIdx = 0; suitIdx < SUITS.Length; suitIdx++)
+            {
+                if ((cardID & SUITS[suitIdx]) == SUITS[suitIDX]) cardString += SUIT_NAMES[suitIdx]; 
+                break;
+            }
+            return cardString;
         }
     }
 }
