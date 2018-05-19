@@ -1,4 +1,4 @@
-namespace Cribbage
+namespace Cards
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace Cribbage
     /// I added the removal of cards from the deck and the interaction with the card manager, but the rest
     /// is acredited to Bridge.
     /// </summary>
-    public class CardDeck
+    public class CardsDeck
     {
         // Constants for defining the dimensions of the deck.
         private const int TOTAL_CARDS = 52;

@@ -1,4 +1,4 @@
-namespace Cribbage
+namespace Cards
 {
     using System;
 
@@ -7,7 +7,7 @@ namespace Cribbage
     /// be used to represent the suits and numbers of a 
     /// standard, 52-card deck of cards.
     /// </summary>
-    public static class CardManager
+    public static class CardsManager
     {
         // Readonly vars defining card suits.
         public static readonly byte CLUBS    = 0b00010000;

@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Cribbage\\Cribbage.csproj",
+      "projectUniqueName": "d:\\CribbageAI\\CribbageAI\\Cribbage\\Cribbage.csproj",
       "projectName": "Cribbage",
-      "projectPath": "D:\\Cribbage\\Cribbage.csproj",
+      "projectPath": "d:\\CribbageAI\\CribbageAI\\Cribbage\\Cribbage.csproj",
       "packagesPath": "C:\\Users\\Sniffin\\.nuget\\packages\\",
-      "outputPath": "D:\\Cribbage\\obj\\",
+      "outputPath": "d:\\CribbageAI\\CribbageAI\\Cribbage\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
